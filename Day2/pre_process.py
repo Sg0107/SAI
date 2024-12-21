@@ -6,7 +6,7 @@ min_max_scaler = preprocessing.MinMaxScaler(feature_range=(1, 100))
 
 def pre_processing(pnl_path, indicators_path, sequence_length):
     def get_candles(df, time, num_candles):
-        return df[df['timestamp'] < time].tail(num_candles)
+        return df[df['timestamp'] <= time].tail(num_candles)
 
     pnl_data = pd.read_csv(pnl_path)
     indicators_data = pd.read_csv(indicators_path)
