@@ -1,0 +1,26 @@
+name: Scheduled Task
+
+on:
+  schedule:
+    - cron: '31 * * * *'  # This runs at the 31st minute of every hour
+  workflow_dispatch:  # Allows manual triggers as well
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Choose the Python version needed for your script
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  # Install required packages
+
+      - name: Run the Python Script
+        run: |
+          python WhatsapNotify/main.py  # Replace with the path to your script
