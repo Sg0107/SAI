@@ -2,7 +2,7 @@ name: Scheduled Task
 
 on:
   schedule:
-    - cron: '31 * * * *'  # This runs at the 31st minute of every hour
+    - cron: '11 * * * *'  # This runs at the 31st minute of every hour
   workflow_dispatch:  # Allows manual triggers as well
 
 jobs:
